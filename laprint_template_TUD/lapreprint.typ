@@ -35,7 +35,7 @@
   margin: (),
   paper-size: "us-letter",
   // A color for the theme of the document
-  theme: blue.darken(30%),
+  theme: blue.darken(10%),
   // Date published, for example, when you publish your preprint to an archive server.
   // To hide the date, set this to `none`. You can also supply a list of dicts with `title` and `date`.
   date: datetime.today(),

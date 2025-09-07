@@ -1,6 +1,6 @@
 #import "lapreprint.typ": *
 #show: template.with(
-  title: "[-doc.title-]",
+  title: align(center, "[-doc.title-]"),
 [# if parts.abstract or parts.summary #]
   abstract: (
 [# if parts.abstract #]
@@ -104,6 +104,23 @@
   ),
 )
 
+
+
 [-IMPORTS-]
+
+#pagebreak(
+  weak: false,
+  to: "odd",
+)
+
+#set heading(numbering: "1.")
+#outline(
+  depth: 2,
+)
+
+#pagebreak(
+  weak: false,
+  to: "odd",
+)
 
 [-CONTENT-]
