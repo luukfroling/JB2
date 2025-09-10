@@ -18,6 +18,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: Check .gitignore for *.pdf
+        run: |
+          if grep -q '^\*\.pdf' .gitignore; then
+            echo "❌ Your .gitignore contains '*.pdf', which prevents committing PDFs." >> $GITHUB_STEP_SUMMARY
+            echo "Remove '*.pdf' or add an exception like '!exports/*.pdf'." >> $GITHUB_STEP_SUMMARY
+            exit 1
+          else
+            echo "✅ .gitignore does not block PDFs" >> $GITHUB_STEP_SUMMARY
+          fi
       - name: Install LaTeX + Python packages
         run: |
           sudo apt-get update
